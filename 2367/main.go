@@ -10,27 +10,30 @@ func main() {
 	fmt.Println(arithmeticTriplets(s, 3))
 }
 
+
 func arithmeticTriplets(nums []int, diff int) int {
-	m := make(map[int]int, len(nums)) // value -> index in nums
+	m := make(map[int]struct{}, len(nums)) // value -> index in nums
 	
-	for i, v := range nums {
-		m[v] = i
+	for _, v := range nums {
+		m[v] = struct{}{}
 	}
 	
 	
 	var ct int
-	for i, v := range nums {
+	for i := 0; i < len(nums)-2 ; i++ {
+        v := nums[i]
+        
 		target := v + diff
 		
-		j, found := m[target]
-		if !found || !(j > i) {
+		_, found := m[target]
+		if !found {
 			continue
 		}
 		
 		target += diff
 		
-		k, found := m[target]
-		if found && k > j {
+		_, found = m[target]
+		if found {
 			ct++
 		}
 	}
@@ -40,18 +43,19 @@ func arithmeticTriplets(nums []int, diff int) int {
 // This uses the fact that nums is sorted and searches nums to find the target values.
 func arithmeticTripletsBinarySearch(nums []int, diff int) int {
 	var ct int
-    for i, v := range nums {
+    for i := 0; i < len(nums)-2 ; i++ {
+        v := nums[i]
 		target := v + diff
 		
-		j, found := slices.BinarySearch(nums, target)
-		if !found || !(j > i) {
+		_, found := slices.BinarySearch(nums, target)
+		if !found {
 			continue
 		}
 		
 		target += diff
 		
-		k, found := slices.BinarySearch(nums, target)
-		if found && k > j {
+		_, found = slices.BinarySearch(nums, target)
+		if found {
 			ct++
 		}
 	}
