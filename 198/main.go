@@ -33,7 +33,7 @@ func maxRob(nums, memo []int, i int) int {
 		return 0
 	}
 	
-	if i >= len(memo) - 2  || memo[i] != -1 {
+	if memo[i] != -1 {
 		return memo[i]
 	}
 	
