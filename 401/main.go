@@ -16,34 +16,18 @@ func main() {
 func readBinaryWatch(turnedOn int) []string {
 	out := make([]string, 0, 16)
 	
-	var i uint16
-	// We can start with an initial value that has turnedOn bits on right away.
-	// This way we don't have to check all the smaller values that have fewer bits on.
-	// This is useful for higher bit counts.
-	for j := 0; j < turnedOn; j++ {
-		i <<= 1
-		i |= 1
-	}
-	for ; i < 1024; i++ {
-		ct := bits.OnesCount16(i)
-		
-		if ct != turnedOn {
-			continue
+	var h, m uint16
+	for h = 0; h < 12; h++ {
+		for m = 0; m < 60; m++ {
+			if bits.OnesCount16(h) + bits.OnesCount16(m) == turnedOn {
+				s := fmt.Sprintf("%d:", h)
+				if m < 10 {
+					s += "0"
+				}
+				s += fmt.Sprintf("%d", m)
+				out = append(out, s)
+			}
 		}
-	
-		lower6 := i & 0x3f
-		upper4 := (i & 0x3c0) >> 6
-		if lower6 > 59 || upper4 > 11 {
-			continue
-		}
-		
-		s := fmt.Sprintf("%d:", upper4)
-		if lower6 < 10 {
-			s += "0"
-		}
-		s += fmt.Sprintf("%d", lower6)
-		out = append(out, s)
-		
 	}
 	
 	return out
