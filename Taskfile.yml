@@ -1,7 +1,12 @@
 version: '3.43.3'
 
 tasks:
-  default: task -l
+  default: task --list
 
   fmt:
+    desc: Run goimports on all .go files in this directory and all subdirectories.
+    preconditions:
+      - sh: command -v goimports
+        msg: goimports is not installed.
     cmd: goimports -w .
+      
