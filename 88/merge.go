@@ -6,9 +6,9 @@ package main
 // The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a
 // length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be
 // ignored. nums2 has a length of n.
-func merge(nums1 []int, m int, nums2 []int, n int)  {
+func merge(nums1 []int, m int, nums2 []int, n int) {
 	out := make([]int, 0, n+m)
-	
+
 	var i, j int
 	for i < m && j < n {
 		if nums1[i] < nums2[j] {
@@ -19,15 +19,15 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
 			j++
 		}
 	}
-	
-	for ;i < m; i++ {
+
+	for ; i < m; i++ {
 		out = append(out, nums1[i])
 	}
-	
-	for ;j < n; j++ {
+
+	for ; j < n; j++ {
 		out = append(out, nums2[j])
 	}
-	
+
 	for i, v := range out {
 		nums1[i] = v
 	}

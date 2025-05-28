@@ -15,13 +15,13 @@ func canJump(nums []int) bool {
 		if gas < 0 {
 			return false
 		}
-		
+
 		if v > gas {
 			gas = v
 		}
 		gas--
 	}
-	
+
 	return true
 }
 
@@ -30,18 +30,18 @@ func canJumpDP(nums []int) bool {
 	n := len(nums)
 	can := make([]bool, len(nums))
 	can[n-1] = true
-	
-	for i := n-2; i >= 0; i-- {
-		
+
+	for i := n - 2; i >= 0; i-- {
+
 		v := nums[i]
-		
-		for j := i + 1; j <= i + v && j < n; j++ {
+
+		for j := i + 1; j <= i+v && j < n; j++ {
 			if can[j] {
 				can[i] = true
 				break
 			}
 		}
 	}
-	
+
 	return can[0]
 }

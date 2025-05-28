@@ -1,11 +1,9 @@
 package main
 
-
 import (
 	"slices"
 	"testing"
 )
-
 
 func TestMerge(t *testing.T) {
 	// Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
@@ -16,12 +14,11 @@ func TestMerge(t *testing.T) {
 		nums1 := []int{1, 2, 3, 0, 0, 0}
 		nums2 := []int{2, 5, 6}
 		merge(nums1, 3, nums2, 3)
-		want :=  []int{1, 2, 2, 3, 5, 6}
+		want := []int{1, 2, 2, 3, 5, 6}
 		if !slices.Equal(nums1, want) {
-			t.Fatalf("want %v got %v", want, nums1) 
+			t.Fatalf("want %v got %v", want, nums1)
 		}
 	})
-
 
 	// Input: nums1 = [1], m = 1, nums2 = [], n = 0
 	// Output: [1]
@@ -31,9 +28,9 @@ func TestMerge(t *testing.T) {
 		nums1 := []int{1}
 		nums2 := []int{0}
 		merge(nums1, 1, nums2, 0)
-		want :=  []int{1}
+		want := []int{1}
 		if !slices.Equal(nums1, want) {
-			t.Fatalf("want %v got %v", want, nums1) 
+			t.Fatalf("want %v got %v", want, nums1)
 		}
 	})
 
@@ -46,9 +43,9 @@ func TestMerge(t *testing.T) {
 		nums1 := []int{0}
 		nums2 := []int{1}
 		merge(nums1, 0, nums2, 1)
-		want :=  []int{1}
+		want := []int{1}
 		if !slices.Equal(nums1, want) {
-			t.Fatalf("want %v got %v", want, nums1) 
+			t.Fatalf("want %v got %v", want, nums1)
 		}
 	})
 }

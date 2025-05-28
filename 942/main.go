@@ -8,10 +8,9 @@ func main() {
 	fmt.Println(diStringMatch("DIIII"))
 }
 
-
 func diStringMatch(s string) []int {
-	perm := make([]int, 0, len(s) + 1)
-	
+	perm := make([]int, 0, len(s)+1)
+
 	min, max := 0, len(s)
 	for _, c := range s {
 		if c == 'I' {
@@ -22,9 +21,8 @@ func diStringMatch(s string) []int {
 			max--
 		}
 	}
-	
+
 	perm = append(perm, max)
 
-	
 	return perm
 }

@@ -14,32 +14,31 @@ func main() {
 
 func lengthOfLIS(nums []int) int {
 	n := len(nums)
-	
-    lises := make([]int, n)
-	
-	for i := n-1; i >= 0; i-- {
+
+	lises := make([]int, n)
+
+	for i := n - 1; i >= 0; i-- {
 		best := 1
-		
-		for j := i+1; j < n; j++ {
-			if nums[j] > nums[i] && lises[j] + 1 > best {
+
+		for j := i + 1; j < n; j++ {
+			if nums[j] > nums[i] && lises[j]+1 > best {
 				best = lises[j] + 1
 			}
 		}
-		
+
 		lises[i] = best
 	}
-	
-	
+
 	return slices.Max(lises)
 }
 
 func lengthOfLISBS(nums []int) int {
 	out := make([]int, 0, len(nums))
-	
+
 	out = append(out, nums[0])
 	for i := 1; i < len(nums); i++ {
 		v := nums[i]
-		
+
 		if v > out[len(out)-1] {
 			out = append(out, v)
 		} else {
@@ -47,6 +46,6 @@ func lengthOfLISBS(nums []int) int {
 			out[idx] = v
 		}
 	}
-	
+
 	return len(out)
 }

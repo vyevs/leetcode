@@ -12,10 +12,10 @@ func main() {
 
 func findContentChildren(g []int, s []int) int {
 	slices.Sort(g)
-    slices.Reverse(g)
+	slices.Reverse(g)
 	slices.Sort(s)
-    slices.Reverse(s)
-	
+	slices.Reverse(s)
+
 	var ct, i int
 	for _, v := range g {
 		if i == len(s) {
@@ -26,7 +26,6 @@ func findContentChildren(g []int, s []int) int {
 			i++
 		}
 	}
-	
-	
+
 	return ct
 }
