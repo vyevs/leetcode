@@ -1,4 +1,4 @@
 github.com/vyevs/gcd v0.0.0-20240822004127-f10361e11495 h1:FfQ4PGNU5IIM9h4waTI7cdRp2U9cfcLDF1Lacfin2Hg=
 github.com/vyevs/gcd v0.0.0-20240822004127-f10361e11495/go.mod h1:rfylCbjOjaCmOAoQHZOKvCsyW4V0oiDK6xuz54192UQ=
-golang.org/x/exp v0.0.0-20240808152545-0cdaa3abc0fa h1:ELnwvuAXPNtPk1TJRuGkI9fDTwym6AYBu0qzT8AcHdI=
-golang.org/x/exp v0.0.0-20240808152545-0cdaa3abc0fa/go.mod h1:akd2r19cwCdwSwWeIdzYQGa/EZZyqcOdwWiwj5L5eKQ=
+golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6 h1:y5zboxd6LQAqYIhHnB48p0ByQ/GnQx2BE33L8BOHQkI=
+golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6/go.mod h1:U6Lno4MTRCDY+Ba7aCcauB9T60gsv5s4ralQzP72ZoQ=
